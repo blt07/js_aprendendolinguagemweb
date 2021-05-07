@@ -19,12 +19,14 @@ for(var i = 0; i < pacientes.length; i++){
     if(peso <= 0 || peso >= 1000){
         pesoEhValido = false;
         tdImc.textContent = "Peso Inválido!";
+        paciente.classList.add("paciente-invalido");
     
     }
 
     if(altura <= 0 || altura >= 3){
         alturaEhValido = false
         tdImc.textContent = "Altura Inválida!";
+        paciente.classList.add("paciente-invalido");
     }
 
     if(alturaEhValido != false && pesoEhValido!=false){
