@@ -36,7 +36,19 @@ for(var i = 0; i < pacientes.length; i++){
 
 }
 
+titulo.addEventListener("click",mostraMensagem); // Inserindo clique do botão
 
+function mostraMensagem(){
+    alert("Olá, eu fui clicado!");
+}
+
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
+
+botaoAdicionar.addEventListener("click", function(event){ // Exemplo de função fantasma
+    event.preventDefault(); // Limpa configurções do clique do botão
+    alert("Cliquei");
+}
+);
 
 
 
