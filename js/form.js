@@ -21,11 +21,13 @@ botaoAdicionar.addEventListener("click", function(event){ // Exemplo de função
     pesoTd.textContent = peso;         // Atribuindo o valor de cada variável a sua respectiva td's
     alturaTd.textContent = altura;
     gorduraTd.textContent = gordura;
+    imcTd.textContent = calculaImc(peso,altura);
 
     pacienteTr.appendChild(nomeTd);
     pacienteTr.appendChild(pesoTd);   // Indexando as variáveis na Tr
     pacienteTr.appendChild(alturaTd);
     pacienteTr.appendChild(gorduraTd);
+    pacienteTr.appendChild(imcTd);
 
     var tabela = document.querySelector("#tabela-pacientes");   // Indexando os valores a tabela de pacientes.
     tabela.appendChild(pacienteTr);
