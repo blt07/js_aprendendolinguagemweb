@@ -6,29 +6,13 @@ botaoAdicionar.addEventListener("click", function(event){ // Exemplo de função
     var form = document.querySelector("#form-adiciona");
     var paciente = obtemPacienteDoFormulario(form);
 
-    
-    var pacienteTr = document.createElement("tr"); // Criando uma tr
 
-    var nomeTd = document.createElement("td");
-    var pesoTd = document.createElement("td");
-    var alturaTd = document.createElement("td");  // Criando as relativas td's
-    var gorduraTd = document.createElement("td");
-    var imcTd = document.createElement("td");
-
-    nomeTd.textContent = nome;
-    pesoTd.textContent = peso;         // Atribuindo o valor de cada variável a sua respectiva td's
-    alturaTd.textContent = altura;
-    gorduraTd.textContent = gordura;
-    imcTd.textContent = calculaImc(peso,altura);
-
-    pacienteTr.appendChild(nomeTd);
-    pacienteTr.appendChild(pesoTd);   // Indexando as variáveis na Tr
-    pacienteTr.appendChild(alturaTd);
-    pacienteTr.appendChild(gorduraTd);
-    pacienteTr.appendChild(imcTd);
+    var pacienteTr = montaTr(paciente);  // Criando uma tr
 
     var tabela = document.querySelector("#tabela-pacientes");   // Indexando os valores a tabela de pacientes.
     tabela.appendChild(pacienteTr);
+
+    form.reset();
 
 }
 );
@@ -42,4 +26,30 @@ function obtemPacienteDoFormulario(form){
         imc: calculaImc(form.peso.value,form.altura.value)
     }
     return paciente;
+}
+
+function montaTr(paciente){
+
+    var pacienteTr = document.createElement("tr");
+    pacienteTr.classList.add("paciente");
+
+    
+
+    pacienteTr.appendChild(montaTd(paciente.nome,"info-nome"));
+    pacienteTr.appendChild(montaTd(paciente.peso,"info-peso"));   // Indexando as variáveis na Tr
+    pacienteTr.appendChild(montaTd(paciente.altura,"info-altura"));
+    pacienteTr.appendChild(montaTd(paciente.gordura,"info-gordura"));
+    pacienteTr.appendChild(montaTd(paciente.imc,"info-imc"));
+
+
+
+    return pacienteTr;
+
+}
+
+function montaTd(dado,classe){
+    var td = document.createElement("td");
+    td.textContent = dado;
+    td.classList.add(classe);
+    return td;
 }
