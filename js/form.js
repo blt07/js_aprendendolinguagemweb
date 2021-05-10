@@ -9,6 +9,11 @@ botaoAdicionar.addEventListener("click", function(event){ // Exemplo de função
 
     var pacienteTr = montaTr(paciente);  // Criando uma tr
 
+    if(!validaPaciente(paciente)){
+        alert("Paciente Inválido!");
+        return;
+    }
+
     var tabela = document.querySelector("#tabela-pacientes");   // Indexando os valores a tabela de pacientes.
     tabela.appendChild(pacienteTr);
 
@@ -52,4 +57,12 @@ function montaTd(dado,classe){
     td.textContent = dado;
     td.classList.add(classe);
     return td;
+}
+
+function validaPaciente(paciente){
+    if(validaPeso(paciente.peso)){
+        return true;
+    }else{
+        return false;
+    }
 }
