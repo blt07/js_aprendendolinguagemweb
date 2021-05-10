@@ -51,7 +51,7 @@ function validaPeso(peso){
 }
 
 function validaAltura(altura){
-    if(altura > 0 && altura <= 3){
+    if(altura >= 0 && altura <= 3){
         return true;
     }else{
         return false;
